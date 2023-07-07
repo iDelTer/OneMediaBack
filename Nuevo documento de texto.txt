@@ -1,0 +1,2 @@
+en inc_config    -> $mailSMTPServer, $server, $usuario, $password, $port y cosas así
+en inc_phpMailer -> Se incluye tras coger todos los datos del formulario y es quien envía el email 

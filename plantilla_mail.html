@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #body{
+            margin: 0px auto;
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+        #container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+            max-width: 600px;
+        }
+
+        #banner {
+            position: relative;
+            display: flex;
+            padding-block: 1.25rem;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: baseline;
+            align-content: center;
+            text-align: center;
+            gap: 0;
+            background-color: blue;
+        }
+        #banner p{
+            background-color: red;
+        }
+
+        .banner-text {
+            text-align: center;
+            font-size: 36px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style: italic;
+        }
+        .banner-description{
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .banner-first {
+            color: white;
+        }
+
+        .banner-second {
+            color: rgb(10, 186, 250);
+        }
+
+        #content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding-block: 1rem;
+            padding-inline: 2rem;
+            min-height: 600px;
+            background-color: rgb(255, 243, 219);
+        }
+
+        #subject{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            padding-block: 1rem;
+        }
+
+        #information{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .subject-text{
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .information-text{
+            padding-block: 0.5rem;
+            font-size: 20px;
+        }
+
+        #footer{
+            position: relative;
+            padding-block: 1rem;
+            padding-inline: 2rem;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            background-color: rgb(28, 28, 28);
+            color: white;
+            font-weight: bold;
+        }
+        #footer ul{
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-content: center;
+            list-style: none;
+            gap: 5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div id="banner">
+            <span class="banner-text"><span class="banner-first">ONE</span><span class="banner-second">MEDIA</span></span>
+            <span class="banner-description">All the media in one place</span>
+        </div>
+
+        <div id="content">
+
+            <div id="subject">
+                <span class="subject-text">Este es el asunto</span>
+            </div>
+
+            <div id="information">
+                <span class="information-text">Este es el mensaje. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga quia magni, asperiores itaque tenetur nobis recusandae beatae tempora adipisci reprehenderit incidunt omnis. Ipsum unde nobis laudantium dignissimos officia enim quis! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium aperiam, vero similique mollitia quasi reprehenderit veniam, saepe dolore exercitationem animi fuga velit perspiciatis. Tempore iusto eveniet voluptatum consectetur alias consequatur. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione labore quidem dicta! Voluptate ullam voluptates nesciunt sit harum nisi, error voluptatem quod in unde natus laboriosam necessitatibus omnis repellendus dolorum.
+                </span>
+                <span class="information-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel officia odit dolore dolorum explicabo aspernatur delectus, eligendi totam possimus, alias voluptatibus a illum necessitatibus consectetur eius perspiciatis nisi, autem beatae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sint hic error, nesciunt dolorum expedita modi tempora. Distinctio velit repellat exercitationem reiciendis magnam, molestias modi iste officiis explicabo corporis culpa!</span>
+                
+            </div>
+
+        </div>
+
+        <div id="footer">
+            <ul>
+                <li><a href="">Go to web page</a></li>
+                <li><a href="">Contact us</a></li>
+                <li><a href="">Terms of Service</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
