@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Lists;
+use App\Models\Liked;
+use App\Models\CompletedMovie;
+use App\Models\CompletedSerie;
+use App\Models\CompletedGame;
 
 class User extends Authenticatable
 {
@@ -40,5 +45,32 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
+
+    public function lists()
+    {
+        return $this->hasMany(Lists::class);
+    }
+
+    public function liked()
+    {
+        return $this->hasMany(Liked::class);
+    }
+
+    public function completedMovie()
+    {
+        return $this->hasMany(CompletedMovie::class);
+    }
+
+    public function completedSerie()
+    {
+        return $this->hasMany(CompletedSerie::class);
+    }
+
+    public function completedGame()
+    {
+        return $this->hasMany(CompletedGame::class);
+    }
 }

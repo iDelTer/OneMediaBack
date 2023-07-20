@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\JuegoController;
@@ -10,6 +11,12 @@ use App\Http\Controllers\JuegoController;
 //     return $request->user();
 // });
 
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/forgotten', [AuthController::class, 'forgotten']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::post('/account', [AuthController::class, 'account'])->middleware('auth:sanctum');
 Route::resource('peliculas', PeliculaController::class);
 Route::resource('series', SerieController::class);
 Route::resource('juegos', JuegoController::class);
