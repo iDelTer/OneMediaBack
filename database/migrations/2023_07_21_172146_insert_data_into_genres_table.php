@@ -34,7 +34,6 @@ class InsertDataIntoGenresTable extends Migration
             ['web_id' => 10751, 'name' => 'Familia'],
             ['web_id' => 10752, 'name' => 'Bélica'],
             ['web_id' => 10770, 'name' => 'Pelicula TV'],
-            // Agrega más datos si es necesario
         ]);
     }
 

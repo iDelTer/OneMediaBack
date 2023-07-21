@@ -14,7 +14,7 @@ class InsertDataIntoPlatformsTable extends Migration
      */
     public function up()
     {
-        DB::table('genres')->insert([
+        DB::table('platforms')->insert([
             ['name' => 'Netflix', 'web_url' => 'https://netflix.com'],
             ['name' => 'HBO', 'web_url' => 'https://hbomax.com'],
             ['name' => 'Disney Plus', 'web_url' => 'https://disneyplus.com'],

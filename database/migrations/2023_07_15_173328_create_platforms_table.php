@@ -16,10 +16,10 @@ class CreatePlatformsTable extends Migration
         Schema::create('platforms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('web_url');
-            // $table->bigInteger('picture_id');
-            $table->foreignId('picture_id');
+            $table->string('web_url')->nullable()->default(null);
+            $table->foreignId('picture_id')->nullable()->default(null);
             $table->timestamps();
+            // $table->bigInteger('picture_id');
             // $table->foreign('picture_id')->references('id')->on('pictures');
         });
     }
