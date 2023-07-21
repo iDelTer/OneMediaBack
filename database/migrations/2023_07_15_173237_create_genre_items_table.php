@@ -18,7 +18,6 @@ class CreateGenreItemsTable extends Migration
             $table->foreignId('item_id');
             // $table->bigInteger('genre_id');
             $table->foreignId('genre_id');
-            $table->timestamps();
             // $table->foreign('item_id')->references('id')->on('items');
             // $table->foreign('genre_id')->references('id')->on('genres');
         });

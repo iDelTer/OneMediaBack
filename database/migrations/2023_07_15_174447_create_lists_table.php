@@ -18,7 +18,6 @@ class CreateListsTable extends Migration
             // $table->bigInteger('user_id');
             $table->foreignId('user_id');
             $table->string('name');
-            $table->timestamps();
             // $table->foreign('user_id')->references('id')->on('users');
         });
     }

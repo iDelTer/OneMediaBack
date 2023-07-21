@@ -18,7 +18,6 @@ class CreatePlatformsTable extends Migration
             $table->string('name');
             $table->string('web_url')->nullable()->default(null);
             $table->foreignId('picture_id')->nullable()->default(null);
-            $table->timestamps();
             // $table->bigInteger('picture_id');
             // $table->foreign('picture_id')->references('id')->on('pictures');
         });

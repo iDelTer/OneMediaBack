@@ -17,7 +17,6 @@ class CreateGenresTable extends Migration
             $table->id();
             $table->bigInteger('web_id');
             $table->string('name');
-            $table->timestamps();
         });
     }
 

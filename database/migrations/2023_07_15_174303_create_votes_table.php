@@ -19,7 +19,6 @@ class CreateVotesTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('item_id');
             $table->integer('score');
-            $table->timestamps();
             // $table->foreign('user_id')->references('id')->on('users');
             // $table->foreign('item_id')->references('id')->on('items');
         });

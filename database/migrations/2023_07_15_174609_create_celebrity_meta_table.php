@@ -18,7 +18,6 @@ class CreateCelebrityMetaTable extends Migration
             $table->foreignId('celebrity_id');
             $table->string('borndate');
             $table->integer('height');
-            $table->timestamps();
             // $table->foreign('celebrity_id')->references('id')->on('celebrities');
         });
     }

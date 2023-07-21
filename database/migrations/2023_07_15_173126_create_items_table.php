@@ -16,13 +16,13 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             // $table->bigInteger('family_id');
+            $table->string('name');
             $table->foreignId('family_id');
             $table->boolean('has_childs');
             $table->string('description');
             $table->text('release');
-            $table->integer('height_picture');
-            $table->integer('width_picture');
-            $table->timestamps();
+            $table->integer('height_picture')->nullable()->default(null);
+            $table->integer('width_picture')->nullable()->default(null);
             // $table->foreign('family_id')->references('id')->on('families');
         });
     }

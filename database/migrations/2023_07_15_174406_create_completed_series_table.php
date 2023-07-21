@@ -18,7 +18,6 @@ class CreateCompletedSeriesTable extends Migration
             // $table->bigInteger('serie_id');
             $table->foreignId('user_id');
             $table->foreignId('serie_id');
-            $table->timestamps();
             // $table->foreign('user_id')->references('id')->on('users');
             // $table->foreign('serie_id')->references('id')->on('series');
         });

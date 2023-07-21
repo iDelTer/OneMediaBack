@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePicturesTable extends Migration
+class InsertDataIntoFamiliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreatePicturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pictures', function (Blueprint $table) {
-            $table->id();
-            $table->string('origin_link');
-        });
+        DB::table('families')->insert([
+            ['name' => 'Movie'],
+            ['name' => 'Serie'],
+            ['name' => 'Game'],
+            ['name' => 'Music'],
+        ]);
     }
 
     /**
@@ -26,6 +28,8 @@ class CreatePicturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pictures');
+        Schema::table('families', function (Blueprint $table) {
+            //
+        });
     }
 }

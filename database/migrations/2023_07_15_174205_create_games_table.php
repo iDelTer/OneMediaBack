@@ -17,7 +17,6 @@ class CreateGamesTable extends Migration
             $table->id();
             // $table->bigInteger('item_id');
             $table->foreignId('item_id');
-            $table->timestamps();
             // $table->foreign('item_id')->references('id')->on('items');
         });
     }

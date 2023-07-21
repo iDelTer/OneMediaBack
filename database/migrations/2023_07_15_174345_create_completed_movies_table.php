@@ -18,7 +18,6 @@ class CreateCompletedMoviesTable extends Migration
             // $table->bigInteger('movie_id');
             $table->foreignId('user_id');
             $table->foreignId('movie_id');
-            $table->timestamps();
             // $table->foreign('user_id')->references('id')->on('users');
             // $table->foreign('movie_id')->references('id')->on('movies');
         });

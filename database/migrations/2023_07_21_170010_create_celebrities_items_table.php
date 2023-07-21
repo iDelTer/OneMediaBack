@@ -19,7 +19,6 @@ class CreateCelebritiesItemsTable extends Migration
             $table->foreignId('item_id');
             $table->foreignId('celebrity_id');
             $table->string('character_name');
-            $table->timestamps();
             // $table->foreign('item_id')->references('id')->on('items');
             // $table->foreign('celebrity_id')->references('id')->on('celebrities');
         });

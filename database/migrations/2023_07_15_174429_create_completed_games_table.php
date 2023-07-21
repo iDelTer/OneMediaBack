@@ -18,7 +18,6 @@ class CreateCompletedGamesTable extends Migration
             // $table->bigInteger('game_id');
             $table->foreignId('user_id');
             $table->foreignId('game_id');
-            $table->timestamps();
             // $table->foreign('user_id')->references('id')->on('users');
             // $table->foreign('game_id')->references('id')->on('games');
         });

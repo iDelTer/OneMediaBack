@@ -19,7 +19,6 @@ class CreatePlatformItemsTable extends Migration
             // $table->bigInteger('platform_id');
             $table->foreignId('item_id');
             $table->foreignId('platform_id');
-            $table->timestamps();
             // $table->foreign('item_id')->references('id')->on('items');
             // $table->foreign('platform_id')->references('id')->on('platforms');
         });

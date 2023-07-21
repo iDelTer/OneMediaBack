@@ -3,82 +3,52 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
+use App\Models\Serie;
+use App\Models\Game;
 
 class MovieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    private function createItem(){
+        // Coge los datos
+        // rellena estos datos (id, family_id(0), has_childs(false), description, release, height_picture(null), width_picture(null))
+        // Retorna la id para las siguientes funciones
+    }
+    public function getmovies(Request $request){
+        $movies = Movie::all(); 
+        return response()->json($movies);
+    }
+
+    public function getseries(Request $request){
+        $series = Serie::all(); 
+        return response()->json($series);
+    }
+
+    public function getgames(Request $request){
+        $games = Game::all(); 
+        return response()->json($games);
+    }
+
+    public function addmovie(Request $request){
+        // Coge la ID de createItem
+        // Crea una nueva película (id, item_id)
+        return response()->json();
+    }
+    public function addserie(Request $request){
+        return response()->json();
+    }
+    public function addgame(Request $request){
+        return response()->json();
+    }
+
+    public function deletemovie(Request $request){
+        //
+    }
+    public function deleteserie(Request $request){
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function deletegame(Request $request){
         //
     }
 }
