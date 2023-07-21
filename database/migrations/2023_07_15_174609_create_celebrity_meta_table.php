@@ -14,8 +14,12 @@ class CreateCelebrityMetaTable extends Migration
     public function up()
     {
         Schema::create('celebrity_meta', function (Blueprint $table) {
-            $table->id();
+            // $table->bigInteger('celebrity_id');
+            $table->foreignId('celebrity_id');
+            $table->string('borndate');
+            $table->integer('height');
             $table->timestamps();
+            // $table->foreign('celebrity_id')->references('id')->on('celebrities');
         });
     }
 

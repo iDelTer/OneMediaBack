@@ -102,6 +102,19 @@ class AuthController extends Controller
         ]);
     }
 
+    public function askauth(Request $request)
+    {
+        $user = $request->user();
+
+        $messageStatus = $user->role == 'admin' ? 200 : 404;
+
+        // No devolver list, sino devolver list_items, pero necesitamos hacer inner join para eso
+        // No devolver completeds, sino devolver list_items, pero necesitamos hacer inner join para eso
+        return response()->json([
+            'status' => $messageStatus,
+        ], $messageStatus);
+    }
+
     // public function account(Request $request)
     // {
     //     return $request->user();

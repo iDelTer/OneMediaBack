@@ -15,7 +15,13 @@ class CreatePlatformItemsTable extends Migration
     {
         Schema::create('platform_items', function (Blueprint $table) {
             $table->id();
+            // $table->bigInteger('item_id');
+            // $table->bigInteger('platform_id');
+            $table->foreignId('item_id');
+            $table->foreignId('platform_id');
             $table->timestamps();
+            // $table->foreign('item_id')->references('id')->on('items');
+            // $table->foreign('platform_id')->references('id')->on('platforms');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlatformLinksTable extends Migration
+class CreateCelebritiesItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreatePlatformLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('platform_links', function (Blueprint $table) {
-            $table->id();
-            // $table->bigInteger('platform_id');
-            $table->foreignId('platform_id');
-            $table->string('url_link');
-            $table->timestamps();
-            // $table->foreign('platform_id')->references('id')->on('platforms');
-
+        Schema::create('celebrities_items', function (Blueprint $table) {
             // $table->bigInteger('item_id');
+            // $table->bigInteger('celebrity_id');
+            $table->foreignId('item_id');
+            $table->foreignId('celebrity_id');
+            $table->string('character_name');
+            $table->timestamps();
             // $table->foreign('item_id')->references('id')->on('items');
+            // $table->foreign('celebrity_id')->references('id')->on('celebrities');
         });
     }
 
@@ -33,6 +32,6 @@ class CreatePlatformLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('platform_links');
+        Schema::dropIfExists('celebrities_items');
     }
 }

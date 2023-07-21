@@ -15,7 +15,10 @@ class CreateGamesDlcsTable extends Migration
     {
         Schema::create('games_dlcs', function (Blueprint $table) {
             $table->id();
+            // $table->bigInteger('game_id');
+            $table->foreignId('game_id');
             $table->timestamps();
+            // $table->foreign('game_id')->references('id')->on('games');
         });
     }
 

@@ -14,8 +14,13 @@ class CreateGenreItemsTable extends Migration
     public function up()
     {
         Schema::create('genre_items', function (Blueprint $table) {
-            $table->id();
+            // $table->bigInteger('item_id');
+            $table->foreignId('item_id');
+            // $table->bigInteger('genre_id');
+            $table->foreignId('genre_id');
             $table->timestamps();
+            // $table->foreign('item_id')->references('id')->on('items');
+            // $table->foreign('genre_id')->references('id')->on('genres');
         });
     }
 

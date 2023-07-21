@@ -15,7 +15,12 @@ class CreateListItemsTable extends Migration
     {
         Schema::create('list_items', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('list_id');
+            $table->foreignId('item_id');
+            // $table->bigInteger('list_id');
+            // $table->bigInteger('item_id');
+            // $table->foreign('list_id')->references('id')->on('lists');
+            // $table->foreign('item_id')->references('id')->on('items');
         });
     }
 

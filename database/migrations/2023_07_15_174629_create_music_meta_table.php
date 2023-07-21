@@ -15,7 +15,12 @@ class CreateMusicMetaTable extends Migration
     {
         Schema::create('music_meta', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('item_id');
+            $table->foreignId('author_id');
+            // $table->bigInteger('item_id');
+            // $table->bigInteger('author_id');
+            // $table->foreign('item_id')->references('id')->on('items');
+            // $table->foreign('author_id')->references('id')->on('celebrities');
         });
     }
 
