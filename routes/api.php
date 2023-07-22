@@ -22,6 +22,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::post('/account', [AuthController::class, 'account'])->middleware('auth:sanctum');
 Route::post('/askauth', [AuthController::class, 'askauth'])->middleware('auth:sanctum');
 Route::post('/genres/getgenres', [GenreController::class, 'getgenres']);
+Route::post('/movies/getremotemovies', [ItemController::class, 'getremotemovies'])->middleware('auth:sanctum');
 Route::post('/movies/getmovies', [ItemController::class, 'getmovies']);
 Route::post('/movies/addmovie', [ItemController::class, 'addmovie'])->middleware('auth:sanctum');
 Route::post('/movies/deletemovies', [ItemController::class, 'deletemovie'])->middleware('auth:sanctum');

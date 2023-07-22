@@ -11,13 +11,51 @@ use App\Models\Game;
 
 class ItemController extends Controller
 {
-    private function createItem($name, $desc, $rel, $fam, $ch){
+
+    public function getremotemovies(Request $request)
+    {
+
+        $user = auth()->user();
+
+        if ($user) {
+            $role = $user->role;
+
+            if(!$role) return response()->json(['role' => 'No tienes permisos']);
+        } else {
+            return response()->json(['message' => 'Usuario no autenticado'], 401);
+        }
+
+        $url = 'https://api.themoviedb.org/3/discover/movie';
+        $headers = [
+            'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYzllNWJiNjU3NTVlNWE5Njg4OWFkNzgxMjcyZGM2NSIsInN1YiI6IjY0OTQ0ZTQ4NmI1ZmMyMDE0YzEzNWZlMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6lAqNltJuUrYauVDn1qLgvsk_N1QiGFiIfnSrCu3D88',
+            'accept: application/json',
+        ];
+
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'GET',
+                'header' => $headers,
+            ],
+        ]);
+
+        $response = file_get_contents($url, false, $context);
+
+        if ($response !== false) {
+            $data = json_decode($response, true);
+            return response()->json($data['results']);
+        } else {
+            return response()->json(['error' => 'No se ha podido establecer conexión']);
+        }
+
+    }
+    private function createItem($name, $desc, $rel, $fam, $ch)
+    {
         $item = new Item();
         $item->name = $name;
         $item->family_id = $fam;
         $item->has_childs = $ch;
-        $item->description = $desc; // Agrega aquí la descripción deseada
-        $item->release = $rel; // Agrega aquí la fecha de lanzamiento deseada
+        $item->description = $desc;
+        $item->release = $rel;
         $item->height_picture = null;
         $item->width_picture = null;
         $item->save();
@@ -25,11 +63,13 @@ class ItemController extends Controller
         return $item->id;
 
     }
-    public function getmovies(Request $request){
-        $movies = Movie::all(); 
+    public function getmovies(Request $request)
+    {
+        $movies = Movie::all();
         return response()->json($movies);
     }
-    public function addmovie(Request $request){
+    public function addmovie(Request $request)
+    {
 
         $validatedData = $request->validate([
             'name' => 'required|string',
@@ -52,31 +92,38 @@ class ItemController extends Controller
         return response()->json(['item_id' => $item_id, 'movie_id' => $movie->id]);
     }
 
-    public function deletemovie(Request $request){
+    public function deletemovie(Request $request)
+    {
         //
     }
 
-    public function getseries(Request $request){
-        $series = Serie::all(); 
+    public function getseries(Request $request)
+    {
+        $series = Serie::all();
         return response()->json($series);
     }
 
-    public function getgames(Request $request){
-        $games = Game::all(); 
+    public function getgames(Request $request)
+    {
+        $games = Game::all();
         return response()->json($games);
     }
 
-    public function addserie(Request $request){
+    public function addserie(Request $request)
+    {
         return response()->json();
     }
-    public function addgame(Request $request){
+    public function addgame(Request $request)
+    {
         return response()->json();
     }
-    public function deleteserie(Request $request){
+    public function deleteserie(Request $request)
+    {
         //
     }
 
-    public function deletegame(Request $request){
+    public function deletegame(Request $request)
+    {
         //
     }
 }
