@@ -27,7 +27,7 @@ class ItemController extends Controller
 
         $url = 'https://api.themoviedb.org/3/discover/movie';
         $headers = [
-            'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYzllNWJiNjU3NTVlNWE5Njg4OWFkNzgxMjcyZGM2NSIsInN1YiI6IjY0OTQ0ZTQ4NmI1ZmMyMDE0YzEzNWZlMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6lAqNltJuUrYauVDn1qLgvsk_N1QiGFiIfnSrCu3D88',
+            'Authorization: Bearer ' . env('THEMOVIEDB_TOKEN'),
             'accept: application/json',
         ];
 
