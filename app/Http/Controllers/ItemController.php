@@ -20,7 +20,7 @@ class ItemController extends Controller
         if ($user) {
             $role = $user->role;
 
-            if(!$role) return response()->json(['role' => 'No tienes permisos']);
+            if (!$role) return response()->json(['role' => 'No tienes permisos']);
         } else {
             return response()->json(['message' => 'Usuario no autenticado'], 401);
         }
@@ -46,7 +46,6 @@ class ItemController extends Controller
         } else {
             return response()->json(['error' => 'No se ha podido establecer conexión']);
         }
-
     }
     private function createItem($name, $desc, $rel, $fam, $ch)
     {
@@ -61,7 +60,6 @@ class ItemController extends Controller
         $item->save();
 
         return $item->id;
-
     }
     public function getmovies(Request $request)
     {
@@ -89,7 +87,7 @@ class ItemController extends Controller
         $movie->item_id = $item_id;
         $movie->save();
 
-        return response()->json(['item_id' => $item_id, 'movie_id' => $movie->id]);
+        return response()->json(['item_id' => $item_id, 'movie_id' => $movie->id, 'message' => 'Movie added successfully']);
     }
 
     public function deletemovie(Request $request)
