@@ -21,6 +21,11 @@ class Item extends Model
         'width_picture',
     ];
 
+    public function pictures()
+    {
+        return $this->hasMany(Picture::class);
+    }
+
     public function movies()
     {
         return $this->hasMany(Movie::class);

@@ -14,4 +14,9 @@ class Movie extends Model
     protected $fillable = [
         'item_id'
     ];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class, 'item_id');
+    }
 }

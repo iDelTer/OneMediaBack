@@ -15,6 +15,7 @@ class CreatePicturesTable extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('item_id');
             $table->string('origin_link');
         });
     }

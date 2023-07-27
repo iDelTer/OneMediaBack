@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Item;
+use App\Models\Picture;
 use App\Models\Movie;
 use App\Models\Serie;
 use App\Models\Game;
@@ -61,10 +62,37 @@ class ItemController extends Controller
 
         return $item->id;
     }
+    private function createPicture($itemid, $image)
+    {
+        $picture = new Picture();
+        $picture->item_id = $itemid;
+        $picture->origin_link = $image;
+        $picture->save();
+
+        return $picture->id;
+    }
     public function getmovies(Request $request)
     {
-        $movies = Movie::all();
-        return response()->json($movies);
+        // $movies = Movie::all();
+        // return response()->json($movies);
+
+        $movies = Movie::inRandomOrder()->take(10)->with('item')->get();
+        // $movies = Movie::with('item')->get();
+
+        // Mapear los campos requeridos para cada película
+        $movieData = $movies->map(function ($movie) {
+            $pictures = Picture::where('item_id', $movie->item_id)->get();
+            $picture = $pictures->first();
+            return [
+                'id' => $movie->item_id,
+                'name' => $movie->item->name,
+                'description' => $movie->item->description,
+                'release' => $movie->item->release,
+                'picture' => $picture ? $picture->origin_link : null,
+            ];
+        });
+
+        return response()->json($movieData);
     }
     public function addmovie(Request $request)
     {
@@ -72,7 +100,8 @@ class ItemController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string',
             'description' => 'required|string',
-            'release' => 'required|string'
+            'release' => 'required|string',
+            'picture' => 'required|string',
         ]);
 
         $validatedData['name'] = str_replace(' ', '_', $validatedData['name']);
@@ -83,6 +112,7 @@ class ItemController extends Controller
         $validatedData['release'] = Str::ascii($validatedData['release']);
 
         $item_id = $this->createItem($validatedData['name'], $validatedData['description'], $validatedData['release'], 0, false);
+        $this->createPicture($item_id, $validatedData['picture']);
         $movie = new Movie();
         $movie->item_id = $item_id;
         $movie->save();
