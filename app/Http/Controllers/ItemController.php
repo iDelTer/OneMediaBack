@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Item;
@@ -13,7 +14,7 @@ use App\Models\Game;
 class ItemController extends Controller
 {
 
-    public function getremotemovies(Request $request)
+    public function getremotemoviesrandom(Request $request)
     {
 
         $user = auth()->user();
@@ -48,6 +49,46 @@ class ItemController extends Controller
             return response()->json(['error' => 'No se ha podido establecer conexión']);
         }
     }
+
+    public function getremotemoviesname(Request $request)
+    {
+
+        $user = auth()->user();
+
+        if ($user) {
+            $role = $user->role;
+
+            if (!$role) return response()->json(['role' => 'No tienes permisos']);
+        } else {
+            return response()->json(['message' => 'Usuario no autenticado'], 401);
+        }
+
+        $searchQuery = $request->input('query');
+        LOG::info('esta es la query' . $searchQuery);
+
+        $url = "https://api.themoviedb.org/3/search/movie?query=$searchQuery";
+        $headers = [
+            'accept: application/json',
+            'Authorization: Bearer ' . env('THEMOVIEDB_TOKEN'),
+        ];
+
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'GET',
+                'header' => $headers,
+            ],
+        ]);
+
+        $response = file_get_contents($url, false, $context);
+
+        if ($response !== false) {
+            $data = json_decode($response, true);
+            return response()->json($data['results']);
+        } else {
+            return response()->json(['error' => 'No se ha podido establecer conexión']);
+        }
+    }
+
     private function createItem($name, $desc, $rel, $fam, $ch)
     {
         $item = new Item();
