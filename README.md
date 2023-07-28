@@ -1,13 +1,12 @@
 # OneMedia
-
 [English](#English)   
 [Español](#Español)    
-&emsp;[OneMedia](#omniplace)    
+&emsp;[OneMedia](#onemedia)    
 &emsp;[Required Programms](#required-programms)  
 &emsp;[Installation](#installation)  
 &emsp;[Running](#running)  
 [Español](#Español)  
-&emsp;[OneMedia](#omniplace-1)  
+&emsp;[OneMedia](#onemedia-1)  
 &emsp;[Programas Necesarios](#programas-necesarios)  
 &emsp;[Instalación](#instalación)  
 &emsp;[Ejecución](#ejecución)
