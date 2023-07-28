@@ -1,8 +1,8 @@
 # OneMedia
 
-[English](#English)
-[Español](#Español)
-&emsp;[OneMedia](#omniplace)  
+[English](#English)   
+[Español](#Español)    
+&emsp;[OneMedia](#omniplace)    
 &emsp;[Required Programms](#required-programms)  
 &emsp;[Installation](#installation)  
 &emsp;[Running](#running)  
