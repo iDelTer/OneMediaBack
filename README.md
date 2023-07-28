@@ -50,7 +50,7 @@ OneMedia es una aplicación web donde se almacena información sobre películas 
 ## Programas Necesarios
 
 [Git](https://git-scm.com/downloads)  
-[Composer](php artisan )  
+[Composer](https://getcomposer.org)  
 [VSCode](https://code.visualstudio.com/) Or any other IDE
 
 ## Instalación
@@ -68,5 +68,5 @@ Necesitas crear una base de datos llamada onemedia o cambiar el nombre de la bas
 Si quieres ejecutar la aplicación
 
 ```
-npm run dev
+php artisan serve
 ```
