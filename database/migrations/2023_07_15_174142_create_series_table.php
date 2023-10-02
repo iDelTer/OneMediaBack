@@ -15,8 +15,9 @@ class CreateSeriesTable extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->id();
-            // $table->bigInteger('item_id');
+            // funcionaba sin cascade $table->foreignId('item_id');
             $table->foreignId('item_id');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->integer('season');
             $table->integer('episode_number');
             $table->string('episode_name');

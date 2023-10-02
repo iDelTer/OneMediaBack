@@ -23,21 +23,21 @@ class Item extends Model
 
     public function pictures()
     {
-        return $this->hasMany(Picture::class);
+        return $this->hasMany(Picture::class)->onDelete('cascade');;
     }
 
     public function movies()
     {
-        return $this->hasMany(Movie::class);
+        return $this->hasMany(Movie::class)->onDelete('cascade');;
     }
 
     public function series()
     {
-        return $this->hasMany(Serie::class);
+        return $this->hasMany(Serie::class)->onDelete('cascade');;
     }
 
     public function games()
     {
-        return $this->hasMany(Game::class);
+        return $this->hasMany(Game::class)->onDelete('cascade');;
     }
 }

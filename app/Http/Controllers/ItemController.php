@@ -112,13 +112,10 @@ class ItemController extends Controller
 
         return $picture->id;
     }
+
     public function getmovies(Request $request)
     {
-        // $movies = Movie::all();
-        // return response()->json($movies);
-
         $movies = Movie::inRandomOrder()->take(10)->with('item')->get();
-        // $movies = Movie::with('item')->get();
 
         // Mapear los campos requeridos para cada película
         $movieData = $movies->map(function ($movie) {
@@ -135,6 +132,7 @@ class ItemController extends Controller
 
         return response()->json($movieData);
     }
+
     public function addmovie(Request $request)
     {
 
@@ -163,7 +161,30 @@ class ItemController extends Controller
 
     public function deletemovie(Request $request)
     {
-        //
+        Log::info('Delete: ' . $request);
+        $movie = Item::find($request->id);
+        if ($movie) {
+            $movie->delete();
+            Movie::where('item_id', $request->id);
+            Picture::where('item_id', $request->id);
+            return response()->json(['message' => 'Removed successfully', 'status' => 200]);
+        } else {
+            return response()->json(['message' => 'Movie not found'], 404);
+        }
+    }
+
+    public function updatemovie(Request $request)
+    {
+        Log::info('Update: ' . $request);
+        $movie = Item::find($request->id);
+        if ($movie) {
+            $movie->name = $request->name;
+            $movie->description = $request->description;
+            $movie->save();
+            return response()->json(['message' => 'Updated successfully', 'status' => 200]);
+        } else {
+            return response()->json(['message' => 'Movie not found'], 404);
+        }
     }
 
     public function getseries(Request $request)

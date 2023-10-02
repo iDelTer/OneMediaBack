@@ -15,7 +15,9 @@ class CreatePicturesTable extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->id();
+            // Funcionaba pero sin on delete $table->foreignId('item_id');
             $table->foreignId('item_id');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->string('origin_link');
         });
     }

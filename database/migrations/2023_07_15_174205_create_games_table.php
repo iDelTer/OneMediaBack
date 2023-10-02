@@ -15,9 +15,9 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            // $table->bigInteger('item_id');
+            // funcionaba sin cascade $table->foreignId('item_id');
             $table->foreignId('item_id');
-            // $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 

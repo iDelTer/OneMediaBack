@@ -17,7 +17,9 @@ class CreateMoviesTable extends Migration
             $table->id();
             // $table->bigInteger('item_id');
             // $table->foreign('item_id')->references('id')->on('items');
+            // Esta funcionaba, pero no se borraba on delete ->>>>> $table->foreignId('item_id');
             $table->foreignId('item_id');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 
