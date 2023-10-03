@@ -128,7 +128,7 @@ class ItemController extends Controller
         // Mapear los campos requeridos para cada película
         $movieData = $movies->map(function ($movie) {
             $pictures = Picture::where('item_id', $movie->item_id)->get();
-            $rate = Vote::where('item_id', $movie->item_id)->sum('score');
+            $rate = Vote::where('item_id', $movie->item_id)->avg('score');
             $picture = $pictures->first();
             return [
                 'id' => $movie->item_id,
@@ -141,6 +141,20 @@ class ItemController extends Controller
         });
 
         return response()->json($movieData);
+    }
+
+    public function getmovie(Request $request)
+    {
+        Log::info(['request' => $request]);
+        $movie = Item::find($request->id);
+
+        $pictures = Picture::where('item_id', $movie->id)->get();
+        $rate = Vote::where('item_id', $movie->id)->avg('score');
+        $picture = $pictures->first();
+        $movie->picture = $picture->origin_link;
+        $movie->rate = $rate;
+
+        return response()->json($movie);
     }
 
     public function addmovie(Request $request)

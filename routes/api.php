@@ -20,6 +20,7 @@ Route::post('/genres/getgenres', [GenreController::class, 'getgenres']);
 Route::post('/movies/getremotemoviesrandom', [ItemController::class, 'getremotemoviesrandom'])->middleware('auth:sanctum');
 Route::post('/movies/getremotemoviesname', [ItemController::class, 'getremotemoviesname'])->middleware('auth:sanctum');
 Route::post('/movies/getmovies', [ItemController::class, 'getmovies']);
+Route::post('/movies/getmovie', [ItemController::class, 'getmovie']);
 Route::post('/movies/addmovie', [ItemController::class, 'addmovie'])->middleware('auth:sanctum');
 Route::post('/movies/deletemovie', [ItemController::class, 'deletemovie'])->middleware('auth:sanctum');
 Route::post('/movies/updatemovie', [ItemController::class, 'updatemovie'])->middleware('auth:sanctum');
