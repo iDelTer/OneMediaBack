@@ -10,37 +10,6 @@ use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\JuegoController;
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
-// Route::controller(AuthController::class)->group(function () {
-//     Route::post('/register', 'register');
-//     Route::post('/login', 'login');
-//     Route::post('/forgotten', 'forgotten');
-//     Route::middleware('auth:sanctum')->group(function () {
-//         Route::post('/logout', 'logout');
-//         Route::post('/account', 'account');
-//         Route::post('/askauth', 'askauth');
-//     });
-// });
-// Route::controller(ItemController::class)->group(function () {
-//     Route::post('/movies/getmovies', 'getmovies');
-//     Route::post('/series/getseries', 'getseries');
-//     Route::post('/games/getgames', 'getgames');
-//     Route::middleware('auth:sanctum')->group(function () {
-//         Route::post('/movies/getremotemoviesrandom', 'getremotemoviesrandom');
-//         Route::post('/movies/getremotemoviesname', 'getremotemoviesname');
-//         Route::post('/movies/addmovie', 'addmovie');
-//         Route::post('/movies/deletemovies', 'deletemovie');
-//         Route::post('/series/addserie', 'addserie');
-//         Route::post('/series/deletserie', 'deleteserie');
-//         Route::post('/games/addgame', 'addgame');
-//         Route::post('/games/deletegame', 'deletegame');
-//     });
-// });
-
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/forgotten', [AuthController::class, 'forgotten']);
@@ -54,6 +23,7 @@ Route::post('/movies/getmovies', [ItemController::class, 'getmovies']);
 Route::post('/movies/addmovie', [ItemController::class, 'addmovie'])->middleware('auth:sanctum');
 Route::post('/movies/deletemovie', [ItemController::class, 'deletemovie'])->middleware('auth:sanctum');
 Route::post('/movies/updatemovie', [ItemController::class, 'updatemovie'])->middleware('auth:sanctum');
+Route::post('/movies/ratemovie', [ItemController::class, 'ratemovie'])->middleware('auth:sanctum');
 Route::post('/series/getseries', [ItemController::class, 'getseries']);
 Route::post('/series/addserie', [ItemController::class, 'addserie'])->middleware('auth:sanctum');
 Route::post('/series/deletserie', [ItemController::class, 'deleteserie'])->middleware('auth:sanctum');

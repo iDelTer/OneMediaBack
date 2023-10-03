@@ -10,9 +10,24 @@ use App\Models\Picture;
 use App\Models\Movie;
 use App\Models\Serie;
 use App\Models\Game;
+use App\Models\Vote;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
+
+    public function checkRole($data)
+    {
+        $user = auth()->user();
+
+        if ($user) {
+            $role = $user->role;
+
+            if (!$role) return response()->json(['role' => 'No tienes permisos']);
+        } else {
+            return response()->json(['message' => 'Usuario no autenticado'], 401);
+        }
+    }
 
     public function getremotemoviesrandom(Request $request)
     {
@@ -53,15 +68,7 @@ class ItemController extends Controller
     public function getremotemoviesname(Request $request)
     {
 
-        $user = auth()->user();
-
-        if ($user) {
-            $role = $user->role;
-
-            if (!$role) return response()->json(['role' => 'No tienes permisos']);
-        } else {
-            return response()->json(['message' => 'Usuario no autenticado'], 401);
-        }
+        $this->checkRole($request);
 
         $searchQuery = $request->input('query');
         LOG::info('esta es la query' . $searchQuery);
@@ -103,6 +110,7 @@ class ItemController extends Controller
 
         return $item->id;
     }
+
     private function createPicture($itemid, $image)
     {
         $picture = new Picture();
@@ -120,6 +128,7 @@ class ItemController extends Controller
         // Mapear los campos requeridos para cada película
         $movieData = $movies->map(function ($movie) {
             $pictures = Picture::where('item_id', $movie->item_id)->get();
+            $rate = Vote::where('item_id', $movie->item_id)->sum('score');
             $picture = $pictures->first();
             return [
                 'id' => $movie->item_id,
@@ -127,6 +136,7 @@ class ItemController extends Controller
                 'description' => $movie->item->description,
                 'release' => $movie->item->release,
                 'picture' => $picture ? $picture->origin_link : null,
+                'rate' => $rate
             ];
         });
 
@@ -135,6 +145,8 @@ class ItemController extends Controller
 
     public function addmovie(Request $request)
     {
+
+        $this->checkRole($request);
 
         $validatedData = $request->validate([
             'name' => 'required|string',
@@ -161,6 +173,9 @@ class ItemController extends Controller
 
     public function deletemovie(Request $request)
     {
+
+        $this->checkRole($request);
+
         Log::info('Delete: ' . $request);
         $movie = Item::find($request->id);
         if ($movie) {
@@ -175,6 +190,9 @@ class ItemController extends Controller
 
     public function updatemovie(Request $request)
     {
+
+        $this->checkRole($request);
+
         Log::info('Update: ' . $request);
         $movie = Item::find($request->id);
         if ($movie) {
@@ -185,6 +203,20 @@ class ItemController extends Controller
         } else {
             return response()->json(['message' => 'Movie not found'], 404);
         }
+    }
+
+    public function ratemovie(Request $request)
+    {
+
+        $this->checkRole($request);
+
+        $userId = Auth::id();
+        $movie = $request->movie_id;
+        $score = $request->score;
+
+        $result = Vote::updateOrInsert(['item_id' => $movie, 'user_id' => $userId], ['score' => $score]);
+
+        return response()->json(['result' => $result]);
     }
 
     public function getseries(Request $request)

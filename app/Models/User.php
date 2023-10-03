@@ -51,26 +51,31 @@ class User extends Authenticatable
 
     public function lists()
     {
-        return $this->hasMany(Lists::class);
+        return $this->hasMany(Lists::class)->onDelete('cascade');
     }
 
     public function liked()
     {
-        return $this->hasMany(Liked::class);
+        return $this->hasMany(Liked::class)->onDelete('cascade');
     }
 
     public function completedMovie()
     {
-        return $this->hasMany(CompletedMovie::class);
+        return $this->hasMany(CompletedMovie::class)->onDelete('cascade');
     }
 
     public function completedSerie()
     {
-        return $this->hasMany(CompletedSerie::class);
+        return $this->hasMany(CompletedSerie::class)->onDelete('cascade');
     }
 
     public function completedGame()
     {
-        return $this->hasMany(CompletedGame::class);
+        return $this->hasMany(CompletedGame::class)->onDelete('cascade');
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class)->onDelete('cascade');
     }
 }
