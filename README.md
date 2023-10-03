@@ -22,6 +22,7 @@ OneMedia is a web application that displays information about films and the user
 
 [Git](https://git-scm.com/downloads)  
 [PHP](https://www.php.net/downloads.php) Version 8.2 or higher  
+[MySQL Server](https://dev.mysql.com/downloads/mysql/) Version 8.1 or higher    
 [Composer](https://getcomposer.org)  
 [VSCode](https://code.visualstudio.com/) Or any other IDE
 
@@ -52,7 +53,8 @@ OneMedia es una aplicación web donde se almacena información sobre películas 
 ## Programas Necesarios
 
 [Git](https://git-scm.com/downloads)  
-[PHP](https://www.php.net/downloads.php) Version 8.2 or higher  
+[PHP](https://www.php.net/downloads.php) Versión 8.2 o más reciente  
+[MySQL Server](https://dev.mysql.com/downloads/mysql/) Versión 8.1 o más reciente    
 [Composer](https://getcomposer.org)  
 [VSCode](https://code.visualstudio.com/) Or any other IDE
 
