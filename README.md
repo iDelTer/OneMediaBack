@@ -1,7 +1,8 @@
 # OneMedia
-[English](#English)   
-[Español](#Español)    
-&emsp;[OneMedia](#onemedia)    
+
+[English](#English)  
+[Español](#Español)  
+&emsp;[OneMedia](#onemedia)  
 &emsp;[Required Programms](#required-programms)  
 &emsp;[Installation](#installation)  
 &emsp;[Running](#running)  
@@ -20,6 +21,7 @@ OneMedia is a web application that displays information about films and the user
 ## Required Programms
 
 [Git](https://git-scm.com/downloads)  
+[PHP](https://www.php.net/downloads.php) Version 8.2 or higher  
 [Composer](https://getcomposer.org)  
 [VSCode](https://code.visualstudio.com/) Or any other IDE
 
@@ -50,6 +52,7 @@ OneMedia es una aplicación web donde se almacena información sobre películas 
 ## Programas Necesarios
 
 [Git](https://git-scm.com/downloads)  
+[PHP](https://www.php.net/downloads.php) Version 8.2 or higher  
 [Composer](https://getcomposer.org)  
 [VSCode](https://code.visualstudio.com/) Or any other IDE
 
