@@ -3,8 +3,8 @@
 [English](#English)  
 &emsp;[OneMedia](#onemedia)  
 &emsp;[Required Programms](#required-programms)  
-&emsp;[Installation](#installation)    
-&emsp;[Configuration](#configuration)  
+&emsp;[Installation](#installation)      
+&emsp;[Configuration](#configuration)    
 &emsp;[Running](#running)   
 &emsp;[Recommended extra steps](#recommended-extra-steps)   
 
@@ -26,10 +26,10 @@ OneMedia is a web application that displays information about films and the user
 
 [Git](https://git-scm.com/downloads)  
 [Composer](https://getcomposer.org)  
-[PHP](https://www.php.net/downloads.php) Minimum version 8.2  
-[MySQL](https://dev.mysql.com/downloads/mysql/) Minimum version 8.1
-[VSCode](https://code.visualstudio.com/) Or any other IDE
-[TheMovieDB](https://themoviedb.com) An API key
+[PHP](https://www.php.net/downloads.php) Minimum version 8.2     
+[MySQL](https://dev.mysql.com/downloads/mysql/) Minimum version 8.1   
+[VSCode](https://code.visualstudio.com/) Or any other IDE   
+[TheMovieDB](https://themoviedb.com) An API key    
 
 ## Installation
 
