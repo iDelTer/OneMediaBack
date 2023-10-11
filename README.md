@@ -12,7 +12,7 @@
 &emsp;[OneMedia](#onemedia-1)  
 &emsp;[Programas Necesarios](#programas-necesarios)  
 &emsp;[Instalación](#instalación)   
-&emsp;[Configuración](#configuración)  Pasos extra recomendados
+&emsp;[Configuración](#configuración)   
 &emsp;[Ejecución](#ejecución)   
 &emsp;[Pasos extra recomendados](#pasos-extra-recomendados)   
 
