@@ -3,30 +3,32 @@
 [English](#English)  
 &emsp;[OneMedia](#onemedia)  
 &emsp;[Required Programms](#required-programms)  
-&emsp;[Installation](#installation)
+&emsp;[Installation](#installation)  
 &emsp;[Configuration](#configuration)  
-&emsp;[Running](#running)
+&emsp;[Running](#running)  
+&emsp;[Recommended extra steps](#recommended-extra-steps)
 
 [Español](#Español)  
 &emsp;[OneMedia](#onemedia-1)  
 &emsp;[Programas Necesarios](#programas-necesarios)  
 &emsp;[Instalación](#instalación)  
 &emsp;[Configuración](#configuración)  
-&emsp;[Ejecución](#ejecución)
+&emsp;[Ejecución](#ejecución)  
+&emsp;[Pasos extra recomendados](#pasos-extra-recomendados)
 
 # English
 
 ## OneMedia
 
-OneMedia is a web application that displays information about films and the users can consult them, create list to save them and vote.
+OneMedia is a web application that displays information about films and the users can consult them, create list to save them and vote. This project requires a client and you can find it in [OneMedia](https://github.com/iDelTer/OneMedia).
 
 ## Required Programms
 
 [Git](https://git-scm.com/downloads)  
 [Composer](https://getcomposer.org)  
 [PHP](https://www.php.net/downloads.php) Minimum version 8.2  
-[MySQL](https://dev.mysql.com/downloads/mysql/) Minimum version 8.1
-[VSCode](https://code.visualstudio.com/) Or any other IDE
+[MySQL](https://dev.mysql.com/downloads/mysql/) Minimum version 8.1  
+[VSCode](https://code.visualstudio.com/) Or any other IDE  
 [TheMovieDB](https://themoviedb.com) An API key
 
 ## Installation
@@ -59,7 +61,7 @@ You must create a database with the name you set up in the enviroment file `DB_D
 
 ## Running
 
-To create all the tables and insert the admin user, you must execute the following command
+To create all the tables, you must execute the following command
 
 ```
 php artisan migrate
@@ -71,11 +73,22 @@ If you want to run the application
 php artisan serve
 ```
 
+## Recommended extra steps
+
+Run this command to create admin and user users
+
+```
+php artisan db:seed --class=UserSeeder
+```
+
+Admin's credentials are email: `admin@admin.com` and password: `admin`.
+User's credentials are email: `user@user.com` and password: `user`.
+
 # Español
 
 ## OneMedia
 
-OneMedia es una aplicación web donde se almacena información sobre películas y los usuarios pueden consultarlas, crear listas donde guardarlas y votarlas.
+OneMedia es una aplicación web donde se almacena información sobre películas y los usuarios pueden consultarlas, crear listas donde guardarlas y votarlas. Este proyecto requiere un cliente y puedes encontrarlo en [OneMedia](https://github.com/iDelTer/OneMedia).
 
 ## Programas Necesarios
 
@@ -116,7 +129,7 @@ Debes crear una base de datos con el nombre que has declarado en el archivo envi
 
 ## Ejecución
 
-Para crear todas las tablas e inserción del usuario admin, debes ejecutar el siguiente comando
+Para crear todas las tablas, debes ejecutar el siguiente comando
 
 ```
 php artisan migrate
@@ -127,3 +140,14 @@ Si quieres ejecutar la aplicación
 ```
 php artisan serve
 ```
+
+## Pasos extra recomendados
+
+Ejecuta el siguiente código para crear los usuarios admin y user
+
+```
+php artisan db:seed --class=UserSeeder
+```
+
+Las credenciales de admin son => email: `admin@admin.com` and password: `admin`.
+Las credenciales de user son => email: `user@user.com` and password: `user`.
