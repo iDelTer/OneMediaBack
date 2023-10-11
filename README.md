@@ -18,7 +18,7 @@
 
 ## OneMedia
 
-OneMedia is a web application that displays information about films and the users can consult them, create list to save them and vote.
+OneMedia is a web application that displays information about films and the users can consult them, create list to save them and vote.  This project requires a client and you can find it in [OneMedia](https://github.com/iDelTer/OneMedia).
 
 ## Required Programms
 
@@ -75,7 +75,7 @@ php artisan serve
 
 ## OneMedia
 
-OneMedia es una aplicación web donde se almacena información sobre películas y los usuarios pueden consultarlas, crear listas donde guardarlas y votarlas.
+OneMedia es una aplicación web donde se almacena información sobre películas y los usuarios pueden consultarlas, crear listas donde guardarlas y votarlas. Este proyecto requiere un cliente y puedes encontrarlo en [OneMedia](https://github.com/iDelTer/OneMedia).
 
 ## Programas Necesarios
 
