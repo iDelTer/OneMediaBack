@@ -3,16 +3,16 @@
 [English](#English)  
 &emsp;[OneMedia](#onemedia)  
 &emsp;[Required Programms](#required-programms)  
-&emsp;[Installation](#installation)
+&emsp;[Installation](#installation)    
 &emsp;[Configuration](#configuration)  
-&emsp;[Running](#running)
+&emsp;[Running](#running)   
 
 [Español](#Español)  
 &emsp;[OneMedia](#onemedia-1)  
 &emsp;[Programas Necesarios](#programas-necesarios)  
-&emsp;[Instalación](#instalación)  
+&emsp;[Instalación](#instalación)   
 &emsp;[Configuración](#configuración)  
-&emsp;[Ejecución](#ejecución)
+&emsp;[Ejecución](#ejecución)   
 
 # English
 
