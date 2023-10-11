@@ -6,13 +6,15 @@
 &emsp;[Installation](#installation)    
 &emsp;[Configuration](#configuration)  
 &emsp;[Running](#running)   
+&emsp;[Recommended extra steps](#recommended-extra-steps)   
 
 [Español](#Español)  
 &emsp;[OneMedia](#onemedia-1)  
 &emsp;[Programas Necesarios](#programas-necesarios)  
 &emsp;[Instalación](#instalación)   
-&emsp;[Configuración](#configuración)  
+&emsp;[Configuración](#configuración)  Pasos extra recomendados
 &emsp;[Ejecución](#ejecución)   
+&emsp;[Pasos extra recomendados](#pasos-extra-recomendados)   
 
 # English
 
@@ -71,6 +73,13 @@ If you want to run the application
 php artisan serve
 ```
 
+## Recommended extra steps
+Run this command to create admin and user users
+```
+php artisan db:seed --class=UserSeeder
+```
+Admin's credentials are email: `admin@admin.com` and password: `admin`.
+User's credentials are email: `user@user.com` and password: `user`.
 # Español
 
 ## OneMedia
@@ -127,3 +136,11 @@ Si quieres ejecutar la aplicación
 ```
 php artisan serve
 ```
+
+## Pasos extra recomendados
+Ejecuta el siguiente código para crear los usuarios admin y user
+```
+php artisan db:seed --class=UserSeeder
+```
+Las credenciales de admin son => email: `admin@admin.com` and password: `admin`.
+Las credenciales de user son => email: `user@user.com` and password: `user`.
