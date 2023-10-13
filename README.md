@@ -57,6 +57,8 @@ DB_PASSWORD
 THEMOVIEDB_TOKEN
 ```
 
+The token of TheMovieDB must be an access_token and not an API Token.
+
 You must create a database with the name you set up in the enviroment file `DB_DATABASE`.
 
 You need to generate a Laravel Key
@@ -133,6 +135,7 @@ DB_PASSWORD
 THEMOVIEDB_TOKEN
 ```
 
+El token de TheMovieDB debe ser un access_token y no una API Token.
 Debes crear una base de datos con el nombre que has declarado en el archivo enviroment `DB_DATABASE`.
 
 Necesitas generar una clave de Laravel
