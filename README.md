@@ -57,7 +57,13 @@ DB_PASSWORD
 THEMOVIEDB_TOKEN
 ```
 
-You must create a database with the name you set up in the enviroment file `DB_DATABASE`
+You must create a database with the name you set up in the enviroment file `DB_DATABASE`.
+
+You need to generate a Laravel Key
+
+```
+php artisan key:generate
+```
 
 ## Running
 
@@ -72,6 +78,8 @@ If you want to run the application
 ```
 php artisan serve
 ```
+
+Once is running, you need to access through the client in [OneMedia](https://github.com/iDelTer/OneMedia).
 
 ## Recommended extra steps
 
@@ -125,7 +133,13 @@ DB_PASSWORD
 THEMOVIEDB_TOKEN
 ```
 
-Debes crear una base de datos con el nombre que has declarado en el archivo enviroment `DB_DATABASE`
+Debes crear una base de datos con el nombre que has declarado en el archivo enviroment `DB_DATABASE`.
+
+Necesitas generar una clave de Laravel
+
+```
+php artisan key:generate
+```
 
 ## Ejecución
 
@@ -140,6 +154,8 @@ Si quieres ejecutar la aplicación
 ```
 php artisan serve
 ```
+
+Una vez esté ejecutado, debes acceder por el cliente de [OneMedia](https://github.com/iDelTer/OneMedia).
 
 ## Pasos extra recomendados
 
